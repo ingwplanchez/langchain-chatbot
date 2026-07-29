@@ -10,6 +10,17 @@ Este proyecto es un chatbot interactivo desarrollado con **Streamlit**, utilizan
 - **Configuración Dinámica**: Slider para ajustar la temperatura del modelo desde el panel lateral.
 - **Streaming de Respuestas**: Las respuestas se muestran en tiempo real mientras el modelo las genera.
 
+## 📸 Capturas de Pantalla
+
+Aquí puedes ver la interfaz y el funcionamiento del chatbot:
+
+![Interfaz Principal](screenshots/main_interface.png)
+*Interfaz principal con el historial de chat y la barra de configuración.*
+
+![Ejemplo de Respuesta](screenshots/chat_example.png)
+*Ejemplo de interacción con el chatbot.*
+
+
 ## 🛠️ Requisitos Previos
 
 - Python 3.10 o superior.
@@ -75,6 +86,7 @@ graph TD
     - `chatbot.py`: Gestión del LLM y creación de la cadena LCEL.
     - `config.py`: Carga y validación de variables de entorno.
     - `prompts.py`: Definición de los templates de prompt.
+- `screenshots/`: Carpeta para almacenar capturas de pantalla del proyecto.
 - `requirements.txt`: Lista de dependencias necesarias.
 - `CLAUDE.md`: Guía de arquitectura y comandos para agentes de IA.
 - `.env`: Archivo de variables de entorno (no subir al repositorio).
