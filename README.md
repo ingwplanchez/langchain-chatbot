@@ -59,7 +59,7 @@ graph TD
 ### 1. Clonar el repositorio
 ```bash
 git clone <url-del-repositorio>
-cd langchain_chatbot
+cd langchain-chatbot
 ```
 
 ### 2. Crear y activar el entorno virtual
