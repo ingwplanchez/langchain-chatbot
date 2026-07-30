@@ -90,6 +90,11 @@ streamlit run app.py
 
 Una vez ejecutado, se abrirá automáticamente una pestaña en tu navegador en `http://localhost:8501`.
 
+## 📦 Tecnologías Utilizadas
+
+- **[Streamlit](https://streamlit.io/)**: Para la creación de la interfaz web.
+- **[LangChain](https://www.langchain.com/)**: Framework para la orquestación de la IA.
+- **[Google Gemini](https://ai.google.dev/)**: Modelo de lenguaje avanzado para el análisis de texto.
 
 ## 🛠️ Mejoras Técnicas Propuestas
 
