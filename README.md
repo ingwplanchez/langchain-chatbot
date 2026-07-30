@@ -10,6 +10,18 @@ Este proyecto es un chatbot interactivo desarrollado con **Streamlit**, utilizan
 - **Configuración Dinámica**: Slider para ajustar la temperatura del modelo desde el panel lateral.
 - **Streaming de Respuestas**: Las respuestas se muestran en tiempo real mientras el modelo las genera.
 
+## 📂 Estructura del Proyecto
+
+- `app.py`: Punto de entrada de la aplicación (Interfaz de Streamlit).
+- `src/`: Directorio fuente con la lógica del núcleo.
+    - `chatbot.py`: Gestión del LLM y creación de la cadena LCEL.
+    - `config.py`: Carga y validación de variables de entorno.
+    - `prompts.py`: Definición de los templates de prompt.
+- `screenshots/`: Carpeta para almacenar capturas de pantalla del proyecto.
+- `requirements.txt`: Lista de dependencias necesarias.
+- `CLAUDE.md`: Guía de arquitectura y comandos para agentes de IA.
+- `.env`: Archivo de variables de entorno (no subir al repositorio).
+
 ## 📸 Capturas de Pantalla
 
 Aquí puedes ver la interfaz y el funcionamiento del chatbot:
@@ -20,6 +32,22 @@ Aquí puedes ver la interfaz y el funcionamiento del chatbot:
 ![Ejemplo de Respuesta](screenshots/chat_example.png)
 *Ejemplo de interacción con el chatbot.*
 
+## 🔄 Flujo de Trabajo
+
+A continuación se detalla el flujo de datos desde que el usuario envía un mensaje hasta que recibe la respuesta:
+
+```mermaid
+graph TD
+    A[Usuario] -->|Envía Mensaje| B[Streamlit UI]
+    B -->|Recupera Historial| C[st.session_state]
+    C -->|Mensajes + Input| D[Prompt Template]
+    D -->|Prompt Formateado| E[ChatGoogleGenerativeAI]
+    E -->|Request| F[Google Gemini API]
+    F -->|Response Stream| E
+    E -->|Chunks de Texto| B
+    B -->|Muestra Respuesta| A
+    B -->|Guarda Interacción| C
+```
 
 ## 🛠️ Requisitos Previos
 
@@ -62,34 +90,6 @@ streamlit run app.py
 
 Una vez ejecutado, se abrirá automáticamente una pestaña en tu navegador en `http://localhost:8501`.
 
-## 🔄 Flujo de Trabajo
-
-A continuación se detalla el flujo de datos desde que el usuario envía un mensaje hasta que recibe la respuesta:
-
-```mermaid
-graph TD
-    A[Usuario] -->|Envía Mensaje| B[Streamlit UI]
-    B -->|Recupera Historial| C[st.session_state]
-    C -->|Mensajes + Input| D[Prompt Template]
-    D -->|Prompt Formateado| E[ChatGoogleGenerativeAI]
-    E -->|Request| F[Google Gemini API]
-    F -->|Response Stream| E
-    E -->|Chunks de Texto| B
-    B -->|Muestra Respuesta| A
-    B -->|Guarda Interacción| C
-```
-
-## 📂 Estructura del Proyecto
-
-- `app.py`: Punto de entrada de la aplicación (Interfaz de Streamlit).
-- `src/`: Directorio fuente con la lógica del núcleo.
-    - `chatbot.py`: Gestión del LLM y creación de la cadena LCEL.
-    - `config.py`: Carga y validación de variables de entorno.
-    - `prompts.py`: Definición de los templates de prompt.
-- `screenshots/`: Carpeta para almacenar capturas de pantalla del proyecto.
-- `requirements.txt`: Lista de dependencias necesarias.
-- `CLAUDE.md`: Guía de arquitectura y comandos para agentes de IA.
-- `.env`: Archivo de variables de entorno (no subir al repositorio).
 
 ## 🛠️ Mejoras Técnicas Propuestas
 
